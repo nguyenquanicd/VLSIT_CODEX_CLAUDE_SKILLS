@@ -10,7 +10,7 @@
 
 | Skill | Purpose / Mục đích |
 |---|---|
-| opencore-ip-downloader | Find and collect licensed open-source hardware IP projects. / Tìm và thu thập các dự án IP phần cứng mã nguồn mở có giấy phép rõ ràng. |
+| opencore-ip-downloader | Find and collect licensed open-source hardware IP projects, then write a README evaluating features, functions, status, FPGA and ASIC (tapeout) capability, with special notes. / Tìm và thu thập các dự án IP phần cứng mã nguồn mở có giấy phép rõ ràng, sau đó viết README đánh giá features, functions, status, khả năng FPGA và ASIC (tapeout), kèm chú ý đặc biệt. |
 | rtl-hierarchy-diagram | Analyze RTL hierarchy and create a multi-page draw.io block diagram. / Phân tích hierarchy RTL và tạo sơ đồ khối draw.io nhiều trang. |
 
 ## Use / Cách dùng
