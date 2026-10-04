@@ -18,7 +18,7 @@ Provide the IP type/use case, number of distinct implementations, and absolute d
 
 ## Use / Cách gọi
 
-    $opencore-ip-downloader Find two distinct, clearly licensed APB UART IP cores with RTL. Save them under C:\work\ip_downloads.
+    $opencore-ip-downloader Find two distinct, clearly licensed APB UART IP cores with RTL. Save them under <ABSOLUTE_DESTINATION_DIRECTORY>.
 
 Instructions: [SKILL.md](SKILL.md)
 
@@ -32,3 +32,9 @@ Instructions: [SKILL.md](SKILL.md)
 Invoke with $opencore-ip-downloader or describe a matching request. Codex may also select the skill automatically. See the repository README for Windows copy commands and plugin packaging options.
 
 Gọi bằng $opencore-ip-downloader hoặc mô tả yêu cầu phù hợp để Codex tự chọn. Xem README repository để có lệnh chép trên Windows và lựa chọn đóng gói plugin.
+
+## Language convention / Quy định ngôn ngữ
+
+Skill instructions, technical references, code comments, plans, reports, diagram labels, and script outputs use precise scientific and engineering English. Only README files and explicitly designated user guidelines use bilingual English–Vietnamese content.
+
+Nội dung skill, tài liệu tham khảo kỹ thuật, comment code, kế hoạch, báo cáo, nhãn sơ đồ và đầu ra script dùng tiếng Anh khoa học và kỹ thuật chuẩn. Chỉ README và tài liệu được xác định rõ là guideline cho người dùng sử dụng song ngữ Anh–Việt.

@@ -20,7 +20,7 @@ Bắt buộc cung cấp đường dẫn thư mục RTL cụ thể. Kết quả m
 
 ## Use / Cách gọi
 
-    /rtl-hierarchy-diagram Analyze the RTL in C:\work\rtl\src and create the hierarchy diagram.
+    /rtl-hierarchy-diagram Analyze the RTL in <RTL_SOURCE_DIRECTORY> and create the hierarchy diagram.
 
 Instructions: [SKILL.md](SKILL.md)
 
@@ -35,3 +35,9 @@ Instructions: [SKILL.md](SKILL.md)
 Invoke with /rtl-hierarchy-diagram or describe a matching request. Claude Code may also select the skill automatically. Use /skills to confirm it loaded. See the repository README for Windows examples and plugin details.
 
 Gọi bằng /rtl-hierarchy-diagram hoặc mô tả yêu cầu phù hợp để Claude Code tự chọn. Dùng /skills để xác nhận skill đã được nạp. Xem README repository để biết ví dụ Windows và thông tin plugin.
+
+## Language convention / Quy định ngôn ngữ
+
+Skill instructions, technical references, code comments, plans, reports, diagram labels, and script outputs use precise scientific and engineering English. Only README files and explicitly designated user guidelines use bilingual English–Vietnamese content.
+
+Nội dung skill, tài liệu tham khảo kỹ thuật, comment code, kế hoạch, báo cáo, nhãn sơ đồ và đầu ra script dùng tiếng Anh khoa học và kỹ thuật chuẩn. Chỉ README và tài liệu được xác định rõ là guideline cho người dùng sử dụng song ngữ Anh–Việt.

@@ -1,8 +1,14 @@
 # Skills for Codex and Claude Code / Bộ skill cho Codex và Claude Code
 
-This repository contains three paired project skills. Every skill has a Codex copy and a Claude Code copy, plus a short bilingual README.
+This repository contains four paired project skills. Every skill has a Codex copy and a Claude Code copy, plus a short bilingual README.
 
-Repository này có ba skill dự án, mỗi skill gồm bản Codex và Claude Code cùng README song ngữ ngắn.
+Repository này có bốn skill dự án, mỗi skill gồm bản Codex và Claude Code cùng README song ngữ ngắn.
+
+## Language convention / Quy định ngôn ngữ
+
+Skill instructions, technical references, code comments, plans, reports, diagram labels, and script outputs use precise scientific and engineering English. Only README files and explicitly designated user guidelines use bilingual English–Vietnamese content.
+
+Nội dung skill, tài liệu tham khảo kỹ thuật, comment code, kế hoạch, báo cáo, nhãn sơ đồ và đầu ra script dùng tiếng Anh khoa học và kỹ thuật chuẩn. Chỉ README và tài liệu được xác định rõ là guideline cho người dùng sử dụng song ngữ Anh–Việt.
 
 ## Skill locations / Vị trí skill
 
@@ -21,7 +27,12 @@ Thư mục project là cách dùng ổn định nhất cho repository này. Comm
 |---|---|---|
 | opencore-ip-downloader | Find licensed open-source hardware IP with RTL, download complete projects, and compare features and FPGA/ASIC readiness. / Tìm IP phần cứng mã nguồn mở có RTL, tải dự án đầy đủ và so sánh tính năng cùng khả năng FPGA/ASIC. | [Codex](.agents/skills/opencore-ip-downloader/README.md) · [Claude](.claude/skills/opencore-ip-downloader/README.md) |
 | rtl-hierarchy-diagram | Trace RTL hierarchy and important interfaces, then create a multi-page Draw.io diagram with module summaries. / Lần theo hierarchy và interface RTL, sau đó tạo sơ đồ Draw.io nhiều trang kèm tóm tắt module. | [Codex](.agents/skills/rtl-hierarchy-diagram/README.md) · [Claude](.claude/skills/rtl-hierarchy-diagram/README.md) |
-| vlsit-rtl-spec-change-implementer | Analyze RTL against a new feature and optional old spec, gate implementation behind bilingual sign-off, and report RTL code-change percentage. / Phân tích RTL theo yêu cầu mới và spec cũ tùy chọn, chờ ký duyệt song ngữ trước khi triển khai và báo cáo tỷ lệ code RTL thay đổi. | [Codex](.agents/skills/vlsit-rtl-spec-change-implementer/README.md) · [Claude](.claude/skills/vlsit-rtl-spec-change-implementer/README.md) |
+| vlsit-rtl-spec-change-implementer | Analyze RTL against a new feature and optional old spec, gate implementation behind approval of an English technical plan, and report RTL code-change percentage. / Phân tích RTL theo yêu cầu mới và spec cũ tùy chọn, chờ duyệt kế hoạch kỹ thuật tiếng Anh trước khi triển khai và báo cáo tỷ lệ code RTL thay đổi. | [Codex](.agents/skills/vlsit-rtl-spec-change-implementer/README.md) · [Claude](.claude/skills/vlsit-rtl-spec-change-implementer/README.md) |
+| vlsit-vhdl-to-systemverilog | Convert complete VHDL RTL into synthesizable SystemVerilog under the bundled VLSIT rules, with semantic analysis, two review gates, source mappings, and evidence-based validation. / Chuyển đầy đủ RTL VHDL sang SystemVerilog tổng hợp được theo rule VLSIT đi kèm, có phân tích semantics, hai gate duyệt, mapping nguồn và kiểm chứng bằng bằng chứng. | [Codex](.agents/skills/vlsit-vhdl-to-systemverilog/README.md) · [Claude](.claude/skills/vlsit-vhdl-to-systemverilog/README.md) |
+
+The VHDL conversion skill includes its own separately maintained references/VLSIT_RTL_Design_Rule.md. The agent must read the complete rule and assess every applicable requirement. Copy the entire skill folder, including references and scripts. Plan approval precedes conversion; final review distinguishes rule compliance, synthesis, and equivalence results.
+
+Skill chuyển VHDL chứa file references/VLSIT_RTL_Design_Rule.md riêng trong skill. Agent bắt buộc đọc đầy đủ rule và đánh giá mọi yêu cầu phù hợp. Chép toàn bộ thư mục skill, gồm references và scripts. Duyệt kế hoạch trước khi chuyển; duyệt cuối tách kết quả đạt rule, synthesis và equivalence.
 
 ## Choose an installation method / Chọn cách cài đặt
 
@@ -43,8 +54,8 @@ Chép toàn bộ thư mục skill và giữ nguyên vị trí của SKILL.md. Tr
 
 Example for Codex on Windows / Ví dụ cài cho Codex trên Windows:
 
-    $repo = "C:\HQuan\102_MyGithub\VLSIT_CODEX_CLAUDE_SKILLS"
-    $project = "C:\work\my-project"
+    $repo = (Resolve-Path ".").Path # Run from the repository root
+    $project = Read-Host "Enter the target project directory"
     $skill = "rtl-hierarchy-diagram"
     $dest = Join-Path $project ".agents\skills\$skill"
     if (Test-Path $dest) { throw "Destination exists; review it before copying." }
@@ -53,17 +64,17 @@ Example for Codex on Windows / Ví dụ cài cho Codex trên Windows:
 
 Example for Claude Code on Windows / Ví dụ cài cho Claude Code trên Windows:
 
-    $repo = "C:\HQuan\102_MyGithub\VLSIT_CODEX_CLAUDE_SKILLS"
-    $project = "C:\work\my-project"
+    $repo = (Resolve-Path ".").Path # Run from the repository root
+    $project = Read-Host "Enter the target project directory"
     $skill = "rtl-hierarchy-diagram"
     $dest = Join-Path $project ".claude\skills\$skill"
     if (Test-Path $dest) { throw "Destination exists; review it before copying." }
     New-Item -ItemType Directory -Force (Split-Path $dest) | Out-Null
     Copy-Item -Recurse (Join-Path $repo ".claude\skills\$skill") $dest
 
-Replace rtl-hierarchy-diagram with opencore-ip-downloader or vlsit-rtl-spec-change-implementer to copy another skill. If the destination already exists, compare or back it up before replacing it.
+Replace rtl-hierarchy-diagram with any other skill name listed above to copy that skill. If the destination already exists, compare or back it up before replacing it.
 
-Thay rtl-hierarchy-diagram bằng opencore-ip-downloader hoặc vlsit-rtl-spec-change-implementer để chép skill khác. Nếu thư mục đích đã tồn tại, hãy so sánh hoặc sao lưu trước khi thay thế.
+Thay rtl-hierarchy-diagram bằng tên skill khác trong bảng trên để chép skill đó. Nếu thư mục đích đã tồn tại, hãy so sánh hoặc sao lưu trước khi thay thế.
 
 ### 3. Install manually for your user / Cài thủ công cho tài khoản cá nhân
 
@@ -73,7 +84,7 @@ Với Codex, chép skill vào thư mục cá nhân mà phiên bản Codex đang 
 
 Example in PowerShell / Ví dụ PowerShell:
 
-    $repo = "C:\HQuan\102_MyGithub\VLSIT_CODEX_CLAUDE_SKILLS"
+    $repo = (Resolve-Path ".").Path # Run from the repository root
     $skill = "vlsit-rtl-spec-change-implementer"
     $dest = Join-Path $HOME ".agents\skills\$skill"
     if (Test-Path $dest) { throw "Destination exists; review it before copying." }
@@ -92,7 +103,8 @@ Nếu repository đã được đẩy lên GitHub và Codex có skill-installer,
 
 When working outside this repository, start Claude Code with this repository as an added directory:
 
-    claude --add-dir "C:\HQuan\102_MyGithub\VLSIT_CODEX_CLAUDE_SKILLS"
+    $repo = (Resolve-Path ".").Path # Run from the repository root
+    claude --add-dir $repo
 
 Claude Code loads the .claude/skills directory from the added location for that session. / Claude Code sẽ nạp thư mục .claude/skills từ vị trí được thêm trong phiên đó.
 

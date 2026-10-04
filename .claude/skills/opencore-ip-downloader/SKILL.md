@@ -5,6 +5,10 @@ description: Search OpenCores and its linked public repositories for open-source
 
 # OpenCores IP Search and Download
 
+## Language convention
+
+Use precise scientific and engineering English for skill instructions, technical clarifications, review gates, plans, reports, RTL comments, diagram labels, manifests, and script messages. Use consistent terminology and distinguish observed results from assumptions. Bilingual English–Vietnamese content is reserved for README files and documents explicitly designated as user guidelines.
+
 Find existing open-source hardware IP that matches the user's description, then collect the complete available project package for each selected IP. OpenCores is the primary catalog; use its official download or linked upstream repository where possible.
 
 ## Required information
@@ -15,7 +19,7 @@ Before starting downloads, make sure the request establishes all three:
 2. How many distinct open-source IP implementations the user wants.
 3. The absolute folder where the files should be saved.
 
-Ask for all missing details together, in the user's language, then wait for the answer before downloading. Do not infer a download destination from the current directory, this skill's location, or an unrelated earlier task. If the user supplies a minimum count, treat it as the target and report when fewer suitable projects exist; never invent projects or count duplicate mirrors as separate IPs.
+Ask for all missing details together in precise technical English, then wait for the answer before downloading. Do not infer a download destination from the current directory, this skill's location, or an unrelated earlier task. If the user supplies a minimum count, treat it as the target and report when fewer suitable projects exist; never invent projects or count duplicate mirrors as separate IPs.
 
 ## Find and select projects
 
@@ -46,7 +50,7 @@ Follow only links that are part of the selected project's distribution. Do not t
 
 ## Write the summary and evaluation README
 
-Add or update a `README.md` in the destination folder that summarizes and evaluates the downloaded IPs side by side. Write it in the user's language. If a `README.md` already exists, extend it and preserve unrelated content. `CATALOG.md` remains the provenance list; this README is the technical assessment.
+Add or update a `README.md` in the destination folder that summarizes and evaluates the downloaded IPs side by side. Write this README in English and Vietnamese, keeping both versions technically consistent. If a `README.md` already exists, extend it and preserve unrelated content. `CATALOG.md` remains the provenance list; this README is the technical assessment.
 
 Base every statement on evidence: the project's README, status notes, changelog, documentation, and the downloaded source tree (for example ASIC synthesis scripts, FPGA project files, vendor-specific primitives, testbenches). Public project information outside the download may be used when it is named as such. This is a document-based assessment; say so in the README, and never present it as a measured or verified result.
 

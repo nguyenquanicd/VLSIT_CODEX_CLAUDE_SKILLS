@@ -5,6 +5,10 @@ description: Analyze existing Verilog or SystemVerilog RTL to trace module hiera
 
 # RTL Hierarchy Analysis and draw.io Diagram
 
+## Language convention
+
+Use precise scientific and engineering English for skill instructions, technical clarifications, review gates, plans, reports, RTL comments, diagram labels, manifests, and script messages. Use consistent terminology and distinguish observed results from assumptions. Bilingual English–Vietnamese content is reserved for README files and documents explicitly designated as user guidelines.
+
 Analyze the existing RTL source and create an editable diagrams.net `.drawio` file. Do not modify RTL source files.
 
 ## Required input: RTL source directory
