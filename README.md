@@ -1,20 +1,113 @@
-# Skill sets for Codex and Claude Code / Bộ skill cho Codex và Claude Code
+# Skills for Codex and Claude Code / Bộ skill cho Codex và Claude Code
 
-## Structure / Cấu trúc
+This repository contains three paired project skills. Every skill has a Codex copy and a Claude Code copy, plus a short bilingual README.
 
-**VI:** Bộ Codex nằm tại .agents/skills/{skill-name}/SKILL.md. Bộ Claude Code tương ứng nằm tại .claude/skills/{skill-name}/SKILL.md. Mỗi thư mục skill có file SKILL.md với metadata name và description cùng hướng dẫn thực hiện.
+Repository này có ba skill dự án, mỗi skill gồm bản Codex và Claude Code cùng README song ngữ ngắn.
 
-**EN:** The Codex set is under .agents/skills/{skill-name}/SKILL.md. The corresponding Claude Code set is under .claude/skills/{skill-name}/SKILL.md. Each skill directory contains a SKILL.md with name and description metadata followed by its instructions.
+## Skill locations / Vị trí skill
 
-## Included skills / Skill hiện có
+| Tool | Project-level folder | Personal folder |
+|---|---|---|
+| Codex | .agents/skills/<skill-name>/ | Current Codex docs: $HOME/.agents/skills/<skill-name>/; some installer setups use $CODEX_HOME/skills/<skill-name>/ |
+| Claude Code | .claude/skills/<skill-name>/ | $HOME/.claude/skills/<skill-name>/ |
 
-| Skill | Purpose / Mục đích |
-|---|---|
-| opencore-ip-downloader | Find and collect licensed open-source hardware IP projects, then write a README evaluating features, functions, status, FPGA and ASIC (tapeout) capability, with special notes. / Tìm và thu thập các dự án IP phần cứng mã nguồn mở có giấy phép rõ ràng, sau đó viết README đánh giá features, functions, status, khả năng FPGA và ASIC (tapeout), kèm chú ý đặc biệt. |
-| rtl-hierarchy-diagram | Analyze RTL hierarchy and create a multi-page draw.io block diagram. / Phân tích hierarchy RTL và tạo sơ đồ khối draw.io nhiều trang. |
+The project folders are the most portable choice for this repository. Commit them to share the skills with teammates. Read the per-skill README for each skill’s functions and input/output details.
 
-## Use / Cách dùng
+Thư mục project là cách dùng ổn định nhất cho repository này. Commit các thư mục đó để chia sẻ skill với nhóm. Xem README của từng skill để biết chức năng và đầu vào/đầu ra cụ thể.
 
-- **Codex CLI:** invoke a skill with $opencore-ip-downloader or $rtl-hierarchy-diagram, or describe the task and let Codex select it. / Gọi skill trực tiếp bằng tên skill có tiền tố $ hoặc mô tả yêu cầu để Codex tự chọn.
-- **Claude Code:** invoke the matching skill with /opencore-ip-downloader or /rtl-hierarchy-diagram, or let Claude load it when relevant. / Gọi skill bằng slash command tương ứng hoặc để Claude tự nạp khi phù hợp.
-- **RTL input:** rtl-hierarchy-diagram requires the explicit path to the RTL source directory. It asks for the path if the request omits it. / Skill rtl-hierarchy-diagram yêu cầu đường dẫn rõ ràng tới thư mục RTL và sẽ hỏi nếu yêu cầu chưa cung cấp.
+## Skills / Danh sách skill
+
+| Skill | Purpose / Mục đích | Guides / Hướng dẫn |
+|---|---|---|
+| opencore-ip-downloader | Find licensed open-source hardware IP with RTL, download complete projects, and compare features and FPGA/ASIC readiness. / Tìm IP phần cứng mã nguồn mở có RTL, tải dự án đầy đủ và so sánh tính năng cùng khả năng FPGA/ASIC. | [Codex](.agents/skills/opencore-ip-downloader/README.md) · [Claude](.claude/skills/opencore-ip-downloader/README.md) |
+| rtl-hierarchy-diagram | Trace RTL hierarchy and important interfaces, then create a multi-page Draw.io diagram with module summaries. / Lần theo hierarchy và interface RTL, sau đó tạo sơ đồ Draw.io nhiều trang kèm tóm tắt module. | [Codex](.agents/skills/rtl-hierarchy-diagram/README.md) · [Claude](.claude/skills/rtl-hierarchy-diagram/README.md) |
+| vlsit-rtl-spec-change-implementer | Analyze RTL against a new feature and optional old spec, gate implementation behind bilingual sign-off, and report RTL code-change percentage. / Phân tích RTL theo yêu cầu mới và spec cũ tùy chọn, chờ ký duyệt song ngữ trước khi triển khai và báo cáo tỷ lệ code RTL thay đổi. | [Codex](.agents/skills/vlsit-rtl-spec-change-implementer/README.md) · [Claude](.claude/skills/vlsit-rtl-spec-change-implementer/README.md) |
+
+## Choose an installation method / Chọn cách cài đặt
+
+### 1. Use the repository directly / Dùng trực tiếp repository
+
+Open this repository as the workspace in Codex or Claude Code. The project skills under .agents/skills and .claude/skills are discovered in their respective tools. This is the easiest team setup.
+
+Mở repository này làm workspace trong Codex hoặc Claude Code. Mỗi công cụ tự nhận diện skill tại thư mục tương ứng .agents/skills hoặc .claude/skills. Đây là cách đơn giản nhất khi dùng theo nhóm.
+
+If you are setting up another machine, clone the repository first using its Git URL, then open the cloned repository in the tool.
+
+Nếu cài trên máy khác, hãy clone repository bằng Git URL rồi mở bản clone bằng công cụ tương ứng.
+
+### 2. Copy one skill manually into a project / Chép thủ công một skill vào project
+
+Copy the full skill folder, keeping SKILL.md at the same relative location. In File Explorer, copy from .agents/skills/<skill-name> to the target project’s .agents/skills/<skill-name> for Codex, or from .claude/skills/<skill-name> to .claude/skills/<skill-name> for Claude Code.
+
+Chép toàn bộ thư mục skill và giữ nguyên vị trí của SKILL.md. Trong File Explorer, chép .agents/skills/<skill-name> vào .agents/skills/<skill-name> của project đích cho Codex; với Claude Code, chép từ .claude/skills/<skill-name> vào .claude/skills/<skill-name> của project đích.
+
+Example for Codex on Windows / Ví dụ cài cho Codex trên Windows:
+
+    $repo = "C:\HQuan\102_MyGithub\VLSIT_CODEX_CLAUDE_SKILLS"
+    $project = "C:\work\my-project"
+    $skill = "rtl-hierarchy-diagram"
+    $dest = Join-Path $project ".agents\skills\$skill"
+    if (Test-Path $dest) { throw "Destination exists; review it before copying." }
+    New-Item -ItemType Directory -Force (Split-Path $dest) | Out-Null
+    Copy-Item -Recurse (Join-Path $repo ".agents\skills\$skill") $dest
+
+Example for Claude Code on Windows / Ví dụ cài cho Claude Code trên Windows:
+
+    $repo = "C:\HQuan\102_MyGithub\VLSIT_CODEX_CLAUDE_SKILLS"
+    $project = "C:\work\my-project"
+    $skill = "rtl-hierarchy-diagram"
+    $dest = Join-Path $project ".claude\skills\$skill"
+    if (Test-Path $dest) { throw "Destination exists; review it before copying." }
+    New-Item -ItemType Directory -Force (Split-Path $dest) | Out-Null
+    Copy-Item -Recurse (Join-Path $repo ".claude\skills\$skill") $dest
+
+Replace rtl-hierarchy-diagram with opencore-ip-downloader or vlsit-rtl-spec-change-implementer to copy another skill. If the destination already exists, compare or back it up before replacing it.
+
+Thay rtl-hierarchy-diagram bằng opencore-ip-downloader hoặc vlsit-rtl-spec-change-implementer để chép skill khác. Nếu thư mục đích đã tồn tại, hãy so sánh hoặc sao lưu trước khi thay thế.
+
+### 3. Install manually for your user / Cài thủ công cho tài khoản cá nhân
+
+For Codex, copy a skill into the user skills directory scanned by your installed Codex version. Current Codex documentation lists $HOME/.agents/skills/<skill-name>. The Codex Skill Installer may instead use $CODEX_HOME/skills; its default is commonly $HOME/.codex/skills. Check /skills after copying. For Claude Code, copy the skill folder to $HOME/.claude/skills/<skill-name>. These locations make the skill available across projects on that machine.
+
+Với Codex, chép skill vào thư mục cá nhân mà phiên bản Codex đang cài nhận diện. Tài liệu Codex hiện tại ghi $HOME/.agents/skills/<skill-name>. Codex Skill Installer có thể dùng $CODEX_HOME/skills, mặc định thường là $HOME/.codex/skills. Kiểm tra bằng /skills sau khi chép. Với Claude Code, chép thư mục skill vào $HOME/.claude/skills/<skill-name>. Cách này giúp dùng skill qua nhiều project trên cùng máy.
+
+Example in PowerShell / Ví dụ PowerShell:
+
+    $repo = "C:\HQuan\102_MyGithub\VLSIT_CODEX_CLAUDE_SKILLS"
+    $skill = "vlsit-rtl-spec-change-implementer"
+    $dest = Join-Path $HOME ".agents\skills\$skill"
+    if (Test-Path $dest) { throw "Destination exists; review it before copying." }
+    New-Item -ItemType Directory -Force (Split-Path $dest) | Out-Null
+    Copy-Item -Recurse (Join-Path $repo ".agents\skills\$skill") $dest
+
+For Claude Code, use .claude\skills instead of .agents\skills in both source and destination. / Với Claude Code, thay .agents\skills bằng .claude\skills ở cả thư mục nguồn và đích.
+
+### 4. Install a GitHub-hosted skill with Codex / Cài skill từ GitHub bằng Codex
+
+If the repository is pushed to GitHub and Codex’s skill-installer is available, invoke it and provide the repository owner/name and the exact skill directory. For example: “$skill-installer Install vlsit-rtl-spec-change-implementer from <OWNER>/<REPOSITORY>, path .agents/skills/vlsit-rtl-spec-change-implementer.” This method is for a GitHub-hosted repository; use manual copy for a local-only folder.
+
+Nếu repository đã được đẩy lên GitHub và Codex có skill-installer, gọi skill đó rồi cung cấp owner/name của repository và đường dẫn thư mục skill chính xác. Ví dụ: “$skill-installer Install vlsit-rtl-spec-change-implementer from <OWNER>/<REPOSITORY>, path .agents/skills/vlsit-rtl-spec-change-implementer.” Cách này dành cho repository trên GitHub; nếu thư mục chỉ có trên máy, hãy chép thủ công.
+
+### 5. Load Claude Code skills for one session / Nạp skill Claude Code trong một phiên
+
+When working outside this repository, start Claude Code with this repository as an added directory:
+
+    claude --add-dir "C:\HQuan\102_MyGithub\VLSIT_CODEX_CLAUDE_SKILLS"
+
+Claude Code loads the .claude/skills directory from the added location for that session. / Claude Code sẽ nạp thư mục .claude/skills từ vị trí được thêm trong phiên đó.
+
+### 6. Package as a plugin for managed distribution / Đóng gói plugin để phân phối
+
+Codex plugins and Claude Code plugins can distribute skills with a plugin manifest and, optionally, a marketplace. This repository currently contains standalone skill folders, not ready-to-install plugin packages. Packaging and publishing are separate steps. / Plugin Codex và Claude Code có thể phân phối skill qua manifest và marketplace. Repository này hiện chứa các thư mục skill độc lập, chưa phải gói plugin cài đặt sẵn. Đóng gói và phát hành là các bước riêng.
+
+## Invoke after setup / Gọi skill sau khi cài
+
+- Codex CLI: explicitly type $skill-name or describe the task and let Codex select a matching skill. Use /skills to view available skills; if a new skill does not appear, restart Codex. / Gọi trực tiếp bằng $skill-name hoặc mô tả yêu cầu để Codex tự chọn. Dùng /skills để xem skill; nếu skill mới chưa xuất hiện, khởi động lại Codex.
+- Claude Code: type /skill-name or describe the task and let Claude choose it. Use /skills to see loaded skills. / Gõ /skill-name hoặc mô tả yêu cầu để Claude tự chọn. Dùng /skills để xem các skill đã nạp.
+
+## Official documentation / Tài liệu chính thức
+
+- [Codex skills, local locations, and installation](https://developers.openai.com/codex/skills)
+- [Claude Code skills and loading scopes](https://code.claude.com/docs/en/skills)
+- [Claude Code plugins](https://code.claude.com/docs/en/plugins/overview)
+- [Codex plugin packaging](https://developers.openai.com/plugins/build/plugins)
