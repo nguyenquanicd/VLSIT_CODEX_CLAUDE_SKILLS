@@ -1,4 +1,4 @@
-# OpenCores IP Downloader — Codex CLI
+# VLSIT OpenCores IP Downloader — Codex CLI
 
 ## Purpose / Mục đích
 
@@ -18,20 +18,20 @@ Provide the IP type/use case, number of distinct implementations, and absolute d
 
 ## Use / Cách gọi
 
-    $opencore-ip-downloader Find two distinct, clearly licensed APB UART IP cores with RTL. Save them under <ABSOLUTE_DESTINATION_DIRECTORY>.
+    $vlsit-opencore-ip-downloader Find two distinct, clearly licensed APB UART IP cores with RTL. Save them under <ABSOLUTE_DESTINATION_DIRECTORY>.
 
 Instructions: [SKILL.md](SKILL.md)
 
 ## Installation options / Các cách cài đặt
 
 1. **Use this repository / Dùng repository này:** Open this repository in Codex; its .agents/skills folder is project-scoped and can be shared with the team. / Mở repository này trong Codex; skill trong .agents/skills áp dụng cho project và có thể chia sẻ với nhóm.
-2. **Manual project copy / Chép thủ công vào project:** Copy this entire folder to the target project at .agents/skills/opencore-ip-downloader. / Chép toàn bộ thư mục này vào .agents/skills/opencore-ip-downloader trong project đích.
-3. **Personal installation / Cài cho tài khoản cá nhân:** Copy the folder to the user skill location scanned by your Codex version. Current docs list $HOME/.agents/skills/opencore-ip-downloader; Codex Skill Installer may use $CODEX_HOME/skills. / Chép thư mục vào vị trí skill cá nhân mà phiên bản Codex nhận diện. Tài liệu hiện tại ghi $HOME/.agents/skills/opencore-ip-downloader; Codex Skill Installer có thể dùng $CODEX_HOME/skills.
-4. **GitHub installer / Cài từ GitHub:** For a GitHub-hosted copy, use $skill-installer and supply the repository and .agents/skills/opencore-ip-downloader path. For local-only files, use manual copy. / Nếu skill được lưu trên GitHub, dùng $skill-installer và cung cấp repository cùng đường dẫn .agents/skills/opencore-ip-downloader. Với file chỉ có trên máy, hãy chép thủ công.
+2. **Manual project copy / Chép thủ công vào project:** Copy this entire folder to the target project at .agents/skills/vlsit-opencore-ip-downloader. / Chép toàn bộ thư mục này vào .agents/skills/vlsit-opencore-ip-downloader trong project đích.
+3. **Personal installation / Cài cho tài khoản cá nhân:** Copy the folder to the user skill location scanned by your Codex version. Current docs list $HOME/.agents/skills/vlsit-opencore-ip-downloader; Codex Skill Installer may use $CODEX_HOME/skills. / Chép thư mục vào vị trí skill cá nhân mà phiên bản Codex nhận diện. Tài liệu hiện tại ghi $HOME/.agents/skills/vlsit-opencore-ip-downloader; Codex Skill Installer có thể dùng $CODEX_HOME/skills.
+4. **GitHub installer / Cài từ GitHub:** For a GitHub-hosted copy, use $skill-installer and supply the repository and .agents/skills/vlsit-opencore-ip-downloader path. For local-only files, use manual copy. / Nếu skill được lưu trên GitHub, dùng $skill-installer và cung cấp repository cùng đường dẫn .agents/skills/vlsit-opencore-ip-downloader. Với file chỉ có trên máy, hãy chép thủ công.
 
-Invoke with $opencore-ip-downloader or describe a matching request. Codex may also select the skill automatically. See the repository README for Windows copy commands and plugin packaging options.
+Invoke with $vlsit-opencore-ip-downloader or describe a matching request. Codex may also select the skill automatically. See the repository README for Windows copy commands and plugin packaging options.
 
-Gọi bằng $opencore-ip-downloader hoặc mô tả yêu cầu phù hợp để Codex tự chọn. Xem README repository để có lệnh chép trên Windows và lựa chọn đóng gói plugin.
+Gọi bằng $vlsit-opencore-ip-downloader hoặc mô tả yêu cầu phù hợp để Codex tự chọn. Xem README repository để có lệnh chép trên Windows và lựa chọn đóng gói plugin.
 
 ## Language convention / Quy định ngôn ngữ
 

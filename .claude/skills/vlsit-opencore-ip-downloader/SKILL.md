@@ -1,9 +1,9 @@
 ---
-name: opencore-ip-downloader
+name: vlsit-opencore-ip-downloader
 description: Search OpenCores and its linked public repositories for open-source hardware IP, download each project with its RTL, documentation, license, and related collateral, then write a README that compares the IPs' features, functions, status, FPGA capability, and ASIC tapeout readiness with special notes. Use when asked to find, collect, or evaluate existing IP cores; not for designing a new core.
 ---
 
-# OpenCores IP Search and Download
+# VLSIT OpenCores IP Search and Download
 
 ## Language convention
 

@@ -25,8 +25,8 @@ Thư mục project là cách dùng ổn định nhất cho repository này. Comm
 
 | Skill | Purpose / Mục đích | Guides / Hướng dẫn |
 |---|---|---|
-| opencore-ip-downloader | Find licensed open-source hardware IP with RTL, download complete projects, and compare features and FPGA/ASIC readiness. / Tìm IP phần cứng mã nguồn mở có RTL, tải dự án đầy đủ và so sánh tính năng cùng khả năng FPGA/ASIC. | [Codex](.agents/skills/opencore-ip-downloader/README.md) · [Claude](.claude/skills/opencore-ip-downloader/README.md) |
-| rtl-hierarchy-diagram | Trace RTL hierarchy and important interfaces, then create a multi-page Draw.io diagram with module summaries. / Lần theo hierarchy và interface RTL, sau đó tạo sơ đồ Draw.io nhiều trang kèm tóm tắt module. | [Codex](.agents/skills/rtl-hierarchy-diagram/README.md) · [Claude](.claude/skills/rtl-hierarchy-diagram/README.md) |
+| vlsit-opencore-ip-downloader | Find licensed open-source hardware IP with RTL, download complete projects, and compare features and FPGA/ASIC readiness. / Tìm IP phần cứng mã nguồn mở có RTL, tải dự án đầy đủ và so sánh tính năng cùng khả năng FPGA/ASIC. | [Codex](.agents/skills/vlsit-opencore-ip-downloader/README.md) · [Claude](.claude/skills/vlsit-opencore-ip-downloader/README.md) |
+| vlsit-rtl-hierarchy-diagram | Trace RTL hierarchy and important interfaces, then create a multi-page Draw.io diagram with module summaries. / Lần theo hierarchy và interface RTL, sau đó tạo sơ đồ Draw.io nhiều trang kèm tóm tắt module. | [Codex](.agents/skills/vlsit-rtl-hierarchy-diagram/README.md) · [Claude](.claude/skills/vlsit-rtl-hierarchy-diagram/README.md) |
 | vlsit-rtl-spec-change-implementer | Analyze RTL against a new feature and optional old spec, gate implementation behind approval of an English technical plan, and report RTL code-change percentage. / Phân tích RTL theo yêu cầu mới và spec cũ tùy chọn, chờ duyệt kế hoạch kỹ thuật tiếng Anh trước khi triển khai và báo cáo tỷ lệ code RTL thay đổi. | [Codex](.agents/skills/vlsit-rtl-spec-change-implementer/README.md) · [Claude](.claude/skills/vlsit-rtl-spec-change-implementer/README.md) |
 | vlsit-vhdl-to-systemverilog | Convert complete VHDL RTL into synthesizable SystemVerilog under the bundled VLSIT rules, with semantic analysis, two review gates, source mappings, and evidence-based validation. / Chuyển đầy đủ RTL VHDL sang SystemVerilog tổng hợp được theo rule VLSIT đi kèm, có phân tích semantics, hai gate duyệt, mapping nguồn và kiểm chứng bằng bằng chứng. | [Codex](.agents/skills/vlsit-vhdl-to-systemverilog/README.md) · [Claude](.claude/skills/vlsit-vhdl-to-systemverilog/README.md) |
 
@@ -56,7 +56,7 @@ Example for Codex on Windows / Ví dụ cài cho Codex trên Windows:
 
     $repo = (Resolve-Path ".").Path # Run from the repository root
     $project = Read-Host "Enter the target project directory"
-    $skill = "rtl-hierarchy-diagram"
+    $skill = "vlsit-rtl-hierarchy-diagram"
     $dest = Join-Path $project ".agents\skills\$skill"
     if (Test-Path $dest) { throw "Destination exists; review it before copying." }
     New-Item -ItemType Directory -Force (Split-Path $dest) | Out-Null
@@ -66,15 +66,15 @@ Example for Claude Code on Windows / Ví dụ cài cho Claude Code trên Windows
 
     $repo = (Resolve-Path ".").Path # Run from the repository root
     $project = Read-Host "Enter the target project directory"
-    $skill = "rtl-hierarchy-diagram"
+    $skill = "vlsit-rtl-hierarchy-diagram"
     $dest = Join-Path $project ".claude\skills\$skill"
     if (Test-Path $dest) { throw "Destination exists; review it before copying." }
     New-Item -ItemType Directory -Force (Split-Path $dest) | Out-Null
     Copy-Item -Recurse (Join-Path $repo ".claude\skills\$skill") $dest
 
-Replace rtl-hierarchy-diagram with any other skill name listed above to copy that skill. If the destination already exists, compare or back it up before replacing it.
+Replace vlsit-rtl-hierarchy-diagram with any other skill name listed above to copy that skill. If the destination already exists, compare or back it up before replacing it.
 
-Thay rtl-hierarchy-diagram bằng tên skill khác trong bảng trên để chép skill đó. Nếu thư mục đích đã tồn tại, hãy so sánh hoặc sao lưu trước khi thay thế.
+Thay vlsit-rtl-hierarchy-diagram bằng tên skill khác trong bảng trên để chép skill đó. Nếu thư mục đích đã tồn tại, hãy so sánh hoặc sao lưu trước khi thay thế.
 
 ### 3. Install manually for your user / Cài thủ công cho tài khoản cá nhân
 

@@ -1,9 +1,9 @@
 ---
-name: rtl-hierarchy-diagram
+name: vlsit-rtl-hierarchy-diagram
 description: Analyze existing Verilog or SystemVerilog RTL to trace module hierarchy, functional relationships, and protocol interfaces, then create a source-grounded multi-page draw.io diagram. Use when asked to inspect or map a design from its top module to its submodules.
 ---
 
-# RTL Hierarchy Analysis and draw.io Diagram
+# VLSIT RTL Hierarchy Analysis and draw.io Diagram
 
 ## Language convention
 
