@@ -11,6 +11,23 @@ Lần theo thiết kế RTL hiện có từ module top tới các module con, th
 - Map module instances and parent-child relationships by hierarchy depth. / Liệt kê instance và quan hệ cha-con theo từng cấp hierarchy.
 - Trace important interfaces and functional paths such as AXI/APB, handshakes, interrupts, and data/control links. / Lần theo interface và đường chức năng như AXI/APB, handshake, interrupt, data/control.
 - Add a concise module-function/interface panel to each page; use black-and-white styling and 18 pt text. / Thêm khung ngắn mô tả chức năng/interface của module trên mỗi trang; dùng hai màu đen trắng và chữ 18 pt.
+- Use only the bundled VLSIT library for blocks, logic symbols, text, and connectors; check their provenance before delivery. / Chỉ dùng thư viện VLSIT đi kèm cho block, ký hiệu logic, chữ và đường nối; kiểm nguồn gốc ký hiệu trước khi bàn giao.
+
+## Required symbol library / Thư viện ký hiệu bắt buộc
+
+[assets/VLSIT_DRAWIO_LIB_V1.drawio.xml](assets/VLSIT_DRAWIO_LIB_V1.drawio.xml) is included in this skill. It contains 39 templates and is the sole source of diagram symbols. Module blocks use template 32; standalone text uses template 0; orthogonal connectors use template 27. Other supplied templates may be used when supported by the actual RTL.
+
+[assets/VLSIT_DRAWIO_LIB_V1.drawio.xml](assets/VLSIT_DRAWIO_LIB_V1.drawio.xml) nằm trong skill, gồm 39 template và là nguồn ký hiệu duy nhất. Block module dùng template 32; chữ riêng dùng template 0; đường nối vuông góc dùng template 27. Các template khác chỉ được dùng khi phù hợp RTL thực tế.
+
+The library is preserved byte for byte. SHA-256: D1631ACF98A920526B235E8970FEDDC9305EA2F0D6A35C6529CD220D62AFABB6. Copy the entire skill folder, including assets, references, and scripts, when installing.
+
+Thư viện được giữ nguyên từng byte, có SHA-256 ở trên. Khi cài đặt, chép toàn bộ thư mục skill, gồm assets, references và scripts.
+
+See [library_usage.md](references/library_usage.md) for template selection and cloning. Run the following from this skill folder; the checker validates symbol provenance and styling, not RTL correctness or visual quality.
+
+Xem [library_usage.md](references/library_usage.md) để chọn và sao chép template. Chạy lệnh dưới từ thư mục skill; công cụ kiểm nguồn gốc và style ký hiệu, không chứng minh RTL đúng hoặc sơ đồ dễ đọc.
+
+    python scripts/library_symbols.py validate --diagram <GENERATED_DRAWIO_FILE>
 
 ## Input and output / Đầu vào và đầu ra
 

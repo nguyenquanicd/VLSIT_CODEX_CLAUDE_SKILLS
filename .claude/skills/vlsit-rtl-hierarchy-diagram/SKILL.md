@@ -1,6 +1,6 @@
 ---
 name: vlsit-rtl-hierarchy-diagram
-description: Analyze existing Verilog or SystemVerilog RTL to trace module hierarchy, functional relationships, and protocol interfaces, then create a source-grounded multi-page draw.io diagram. Use when asked to inspect or map a design from its top module to its submodules.
+description: Analyze existing Verilog or SystemVerilog RTL to trace module hierarchy, functional relationships, and protocol interfaces, then create a source-grounded multi-page draw.io diagram using only the bundled VLSIT symbol library. Use when asked to inspect or map a design from its top module to its submodules.
 ---
 
 # VLSIT RTL Hierarchy Analysis and draw.io Diagram
@@ -10,6 +10,14 @@ description: Analyze existing Verilog or SystemVerilog RTL to trace module hiera
 Use precise scientific and engineering English for skill instructions, technical clarifications, review gates, plans, reports, RTL comments, diagram labels, manifests, and script messages. Use consistent terminology and distinguish observed results from assumptions. Bilingual English–Vietnamese content is reserved for README files and documents explicitly designated as user guidelines.
 
 Analyze the existing RTL source and create an editable diagrams.net `.drawio` file. Do not modify RTL source files.
+
+## Mandatory symbol library
+
+- Use only [assets/VLSIT_DRAWIO_LIB_V1.drawio.xml](assets/VLSIT_DRAWIO_LIB_V1.drawio.xml) as the source of every visible block, logic symbol, connector, text annotation, and note-panel shape. Read [references/library_usage.md](references/library_usage.md) before generation. The library is part of this skill and must be copied with it during installation.
+- Parse the library and inspect the selected templates. Clone their complete cell structures, remap identifiers and internal references, and retain template provenance on each cell as specified in the reference. Use entry 32 for module blocks and bordered panels, entry 0 for standalone text, and entry 27 or another supplied connector template for links.
+- Preserve template shape definitions, gate operations, arrowheads, and group topology. Adapt labels, placement, dimensions, and permitted presentation properties to meet the visual requirements below. Do not import other libraries, choose unrelated built-in symbols, insert images, or invent substitute shapes.
+- Library placeholders describe templates, not the RTL. Replace them with source-grounded content and use logic symbols only when the requested detail and actual RTL justify them. If a required symbol is absent, ask for an extension to this library or an agreed representation using its existing templates; do not silently fall back to another symbol source.
+- If the bundled asset is missing, unreadable, or invalid, stop diagram generation and ask for the correct library. Do not substitute a local-machine file or regenerate a purported copy from memory.
 
 ## Required input: RTL source directory
 
@@ -49,4 +57,8 @@ Analyze the existing RTL source and create an editable diagrams.net `.drawio` fi
 
 ## Deliverables
 
-Provide the `.drawio` file and briefly report the selected top module, page/tab names, RTL files inspected, key functional relationships and identified interfaces, and unresolved or conditional hierarchy. Check that the XML is well-formed and that block descriptions, interface labels, and connections are consistent with the traced RTL. If a preview can be rendered, inspect it for text fit, clipping, overlap, connector labels, tab order, and spacing; state clearly if visual rendering could not be checked.
+Provide the `.drawio` file and briefly report the selected top module, page/tab names, RTL files inspected, key functional relationships and identified interfaces, and unresolved or conditional hierarchy. Record the bundled library filename, SHA-256, and template indices used. Check that the XML is well-formed and that block descriptions, interface labels, and connections are consistent with the traced RTL.
+
+Before handoff, run `python scripts/library_symbols.py validate --diagram <GENERATED_DRAWIO_FILE>` from this skill folder. Correct failed provenance, shape, group, or styling checks before claiming library compliance. If the checker cannot run, disclose that limitation and perform an explicit comparison against the bundled templates; do not claim that the automated check passed. The checker does not prove RTL correctness or visual quality.
+
+If a preview can be rendered, inspect it for text fit, clipping, overlap, connector labels, tab order, spacing, and faithful library-symbol appearance; state clearly if visual rendering could not be checked.
