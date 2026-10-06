@@ -101,7 +101,6 @@ Keep in full, never abbreviate: `data`, `valid`, `ready`, `mode`, `depth`, `done
   - `// Parameter values: ...` legal values or inclusive range, and the default value.
   - `// Parameter unit: ...` unit of the value (for example `bit`, `byte`, `us`). This line is required. A parameter without a physical unit uses `count` for a quantity or `none` for a mode or flag code.
 - **PAR-03** Derive dependent widths (address, counter, field positions) from parameters or localparams; do not repeat literals. Design-specific constants are named parameters, localparams, or enum members.
-- **PAR-04** `[NEW]` Illegal parameter values MUST be rejected at elaboration in a generate-time check that uses an elaboration system task (for example `$error`) in a generate `if`. Such checks are the only allowed system tasks in RTL and MUST be supported by the frontend (see P14).
 
 ```systemverilog
 // Parameter Description: datapath width of the operands and the result.
@@ -375,7 +374,7 @@ endmodule
 | P11 | `package` declarations and imports; SV `interface`/`modport` in design RTL. Allowed in simulation-only verification sources | Module-local types; packed-vector ports |
 | P12 | `` `define `` and `` `undef `` in RTL. Macros defined by the flow may be referenced | Parameters and localparams |
 | P13 | Positional instance connections and `.*` | Named connections (HIE-03) |
-| P14 | Testbench-only system tasks and random stimulus. Elaboration tasks per PAR-04 are the exception | Put them in verification sources |
+| P14 | Testbench-only system tasks and random stimulus | Put them in verification sources |
 | P15 | Combinational logic that gates or derives a functional clock; a clock used as ordinary data | Clock enable, or approved ICG (CLK-03) |
 | P16 | State on both edges, or on an edge different from the domain convention, without architectural approval | Document edge relationship and constraints when unavoidable |
 | P17 | `inout` in functional logic | Pad or IO wrapper only |
